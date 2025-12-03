@@ -1,0 +1,8 @@
+##Python version used == 3.8.15
+pandas==1.5.2
+numpy==1.23.5
+networkx==2.8.8
+natsort==8.2.0
+cobra==0.26.3
+
+## R version used == 4.2.1
