@@ -39,7 +39,7 @@ The subfolder contains the figures that represent correlations between
 **(b)** the interaction indices and *in-vivo* co-occurrence patterns of the species.
 
 
-### `_BacArena simulations`
+### `BacArena simulations`
 This subfolder contains the R scripts to conduct the BacArena simulations presented in the manuscript (BacArena_simulation.R), to extract the metabolic information and compare it with the competitive and synergistic indices (BacArena_evaluation_CIs.R, BacArena_evaluation_SIs.R), and to create the two supplementary Figures 3a and 5 (BacArena_supplementary_analysis.R). Exemplary input data necessary to run these R scripts is stored in the subfolder `Data`.
 
 For details, please refer to the associated publication (TBA).
