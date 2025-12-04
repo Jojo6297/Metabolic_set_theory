@@ -16,6 +16,7 @@ Understanding the composition of microbial communities in their environment rema
 ## Folder Structure
 This repository contains the following main subdirectories:
 
+
 ### `_ModelsAndNetworks`
 This subfolder contains genome-scale metabolic models (GEMs) for ten bacterial species, downloaded from https://vmh.life/ and provided as a demonstration set. These models are processed with the Jupyter notebook `_ModelsAndNetworks/_Model_to_network_script.ipynb`, which generates metabolic networks in the form of edge lists and adjacency matrices. The script also extracts the exchangeable metabolites and biomass reactions associated with each model.
 
@@ -29,15 +30,19 @@ Each of these folders contains a Jupyter notebook that takes metabolic networks 
 
 `2_Indices`: Contains the resulting competitive and synergistic indices obtained from comparing equivalent and non-equivalent layers of the metabolic networks.
 
-For details, please refer to the associated publication (TBA).
-
 
 ### `Figures`
 The subfolder contains the figures that represent correlations between 
 
 **(a)** the interaction indices and *shared-* and *cross-feeding* of microbes in simulated co-cultures of the species (using the agent-based community modeling tool *BacArena*).
 
-**(b)** the interaction indices and *in-vivo* co-occurrences patterns of the species.
+**(b)** the interaction indices and *in-vivo* co-occurrence patterns of the species.
+
+
+### `_BacArena simulations`
+This subfolder contains the R scripts to conduct the BacArena simulations presented in the manuscript (BacArena_simulation.R), to extract the metabolic information and compare it with the competitive and synergistic indices (BacArena_evaluation_CIs.R, BacArena_evaluation_SIs.R), and to create the two supplementary Figures 3a and 5 (BacArena_supplementary_analysis.R). Exemplary input data necessary to run these R scripts is stored in the subfolder `Data`.
+
+For details, please refer to the associated publication (TBA).
 
 ---
 
