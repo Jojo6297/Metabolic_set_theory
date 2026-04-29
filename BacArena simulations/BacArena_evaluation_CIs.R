@@ -20,7 +20,7 @@
 
 #Set working directory
 
-work_folder <- "work_folder"
+work_folder <- ""
 setwd(work_folder)
 
 #Load packages
@@ -48,7 +48,7 @@ for(set_nr in 1:10){
   
   #Determine number of species
   
-  names <- list.files(paste("/random_set_models_",set_nr,sep=""), full.names = FALSE)
+  names <- list.files(paste("randomset_models_",set_nr,sep=""), full.names = FALSE)
   nb <- length(names)
   
   #Correlations
@@ -59,7 +59,7 @@ for(set_nr in 1:10){
   
   for(reps in 1:10){
     
-    sim_reps <- get(load(paste("simulations_random_set_",set_nr,"_repetition_",reps,".Rdata", sep = "")))
+    sim_reps <- get(load(paste("simulations25_reps10_",set_nr,"_",reps-1,".Rdata", sep = "")))
     
     fracs <- list()
     
@@ -163,11 +163,8 @@ for(set_nr in 1:10){
       }
       
       fracs_matrix_list[[1]] <- fracs_matrix_log
-      fracs_matrix_list[[2]] <- fracs_matrix
-      
-      fracs_matrix_list[[3]] <- share_matrix_log
-      fracs_matrix_list[[4]] <- share_matrix
-      
+      fracs_matrix_list[[2]] <- share_matrix_log
+
       fracs[[rn]] <- fracs_matrix_list
       
     }
@@ -183,7 +180,7 @@ for(set_nr in 1:10){
     
     fracs[[rn]] <- list()
     fracs_sd[[rn]] <- list()
-    for(le in 1:4){
+    for(le in 1:2){
       comp <- list()
       for(rep in 1:10){
         comp[[rep]] <- fracs_all[[rep]][[rn]][[le]]
@@ -195,7 +192,7 @@ for(set_nr in 1:10){
   }
 
   
-  dirs <- list.dirs(paste("/random_set_indices_",set_nr,sep=""), recursive = FALSE, full.names = FALSE)
+  dirs <- list.dirs(paste("randomset_indices_",set_nr,sep=""), recursive = FALSE, full.names = FALSE)
   
   indices_means <- c()
   indices_sds <- c()
@@ -207,7 +204,7 @@ for(set_nr in 1:10){
   
   for(d in 1:length(dirs)){
     
-    dirs_temp <- list.dirs(paste("/random_set_indices_",set_nr,"/",dirs[d],sep=""))
+    dirs_temp <- list.dirs(paste("randomset_indices_",set_nr,"/",dirs[d],sep=""))
     
     for(dt in 1:length(dirs_temp)){
       if(length(list.dirs(dirs_temp[dt]))==1){
@@ -251,7 +248,7 @@ for(set_nr in 1:10){
             
             #cross-feeding
             
-            fracs_matrix <- fracs[[rn]][[l]]
+            fracs_matrix <- fracs[[rn]][[1]]
             fracs_vector <- rep(NA,((choose(nb,2))*2))
             r <- 0
             for(i in 1:nb){
@@ -266,8 +263,8 @@ for(set_nr in 1:10){
             save(fracs_matrix, file = paste("fracs_matrix_set",set_nr,"_rn",rn,".Rdata",sep=""))
             
             mc <- 0
-            
-            share_matrix <- fracs[[rn]][[l+2]]
+
+            share_matrix <- fracs[[rn]][[2]]
             share_vector <- rep(NA,((choose(nb,2))*2))
             r <- 0
             for(i in 1:nb){
@@ -467,6 +464,7 @@ for(set_nr in 1:10){
   indices_length_plot <- length(results[[1]])
   
   results_all_cross <- rbind(results_all_cross, results[[1]])
+  #results_all_share <- rbind(results_all_share, results[[3]])
   results_all_share <- rbind(results_all_share, results[[3]])
 }
 
@@ -478,8 +476,11 @@ save(cross_share_c, file = "cross_share_c.Rdata")
 results_all_cross <- results_all_cross[-1,]
 results_all_share <- results_all_share[-1,]
 
-names_indices <- c("CI_SS.1","CI_CC.1","CI_EE.2","CI_D1D1.3","CI_D2D2.3","CI_D3D3.3","CI_D4D4.3","CI_D5D5.3","CI_D6D6.3","CI_D7D7.3","CI_D8D8.3","CI_RR.3","CI_Node.3","CI_Edge.4","SI_PS.1","SI_CE.2","SI_EC.2")
-
+names_indices <- c("CI_SS.1","CI_CC.1","CI_EE.2","CI_D1D1.3","CI_D2D2.3","CI_D3D3.3","CI_D4D4.3","CI_D5D5.3","CI_D6D6.3","CI_D7D7.3","CI_D8D8.3","CI_RR.3","CI_Node.3","CI_Edge.4","CI_k1k1","CI_k2k2","CI_k3k3","CI_k4k4","SI_PS.1","SI_CE.2","SI_EC.2",
+                   "SI_k1k2","SI_k1k3","SI_k1k4",
+                   "SI_k2k1","SI_k2k3","SI_k2k4",
+                   "SI_k3k1","SI_k3k2","SI_k3k4",
+                   "SI_k4k1","SI_k4k2","SI_k4k3")
 table <- as.matrix(colMeans(results_all_cross))
 
 node <- table[15,1]
