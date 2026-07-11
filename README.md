@@ -4,12 +4,12 @@
   <img src="Figures/logo.png" alt="Logo" width="160"/>
 </p>
 
-### "Leveraging agent-based modeling and co-occurrence data to validate a generalized metabolic model of species interaction in the human gut microbiome" by Jyoti Jyoti, Hannah Zoller, Wolfgang zu Castell, and Marc-Thorsten Hütt.
+### "Metabolic set theory: a generalized model of microbial interactions" by Jyoti Jyoti, Hannah Zoller, Wolfgang zu Castell, and Marc-Thorsten Hütt.
 
-Link to publication: TBA
+[Visit publication](https://doi.org/10.1038/s41540-026-00774-4)
 
 ## Overview
-Understanding the composition of microbial communities in their environment remains a challenge due to the complex interplay of factors like inter-species interactions and nutrient availability. In this context, it has become an established approach to use overlap in functional subsets of metabolic networks as indicators of synergy and competition among microorganisms. Here, we show that this idea can actually be reduced to a much simpler principle. Leveraging the agent-based community modeling software BacArena and natural co-occurrence patterns in the human gut microbiome for a systematic comparison, we find that simple set-theoretical levels explain interactions to a similarly high degree as more sophisticated, established approaches based on network topology. Furthermore, we observe that the performance of most indices decreases substantially for patients diagnosed with obesity or inflammatory bowel disease, suggesting a systemic decline in the microbiome.
+Understanding the composition of microbial communities in their environment remains a challenge due to the complex interplay of factors like inter-species interactions and nutrient availability. In this context, it has become an established approach [1] to use overlap in functional subsets of metabolic networks as indices of synergy and competition among microorganisms. Here, we show that this idea can actually be reduced to a much simpler principle. Leveraging the agent-based community modeling software BacArena and natural co-occurrence patterns in the human gut microbiome for a systematic comparison, we find that simple set-theoretical indices explain interactions to a similarly high degree as more sophisticated, established approaches based on network topology. Furthermore, we observe that the performance of most indices decreases substantially for patients diagnosed with obesity or inflammatory bowel disease, suggesting a systemic decline in the microbiome.
 
 ---
 
@@ -42,7 +42,7 @@ The subfolder contains the figures that represent correlations between
 ### `BacArena simulations`
 This subfolder contains the R scripts to conduct the BacArena simulations presented in the manuscript (BacArena_simulation.R), to extract the metabolic information and compare it with the competitive and synergistic indices (BacArena_evaluation_CIs.R, BacArena_evaluation_SIs.R), and to create the two supplementary Figures 3a and 5 (BacArena_supplementary_analysis.R). Exemplary input data necessary to run these R scripts is stored in the subfolder `Data`.
 
-For details, please refer to the associated publication (TBA).
+For details, please refer to the [associated publication](https://doi.org/10.1038/s41540-026-00774-4).
 
 ---
 
@@ -54,4 +54,6 @@ Package versions are listed in `requirements.txt`.
 ---
 
 ## References
-1. R. Levy and E. Borenstein. “Metabolic modeling of species interaction in the human microbiome elucidates community-level assembly rules”. In: Proceedings of the National Academy of Sciences 110.31(2013), pp. 2804–12809. https://doi.org/10.1073/pnas.1300926110
+1. R. Levy and E. Borenstein. "Metabolic modeling of species interaction in the human microbiome elucidates community-level assembly rules". In: Proceedings of the National Academy of Sciences 110.31(2013), pp. 2804–12809. https://doi.org/10.1073/pnas.1300926110
+
+2. J. Jyoti, H. Zoller, W. zu Castell & M.-T. Hütt. "Metabolic set theory: a generalized model of microbial interactions". In: npj Systems Biology and Applications 12.94(2026). https://doi.org/10.1038/s41540-026-00774-4
